@@ -6,6 +6,7 @@ const lowerEl = document.getElementById("lower");
 const numberEl = document.getElementById("number");
 const symbolEl = document.getElementById("symbol");
 const generateEl = document.getElementById("generate");
+const toastEl = document.getElementById("toast");
 
 const upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
@@ -95,5 +96,12 @@ copyEl.addEventListener("click", () => {
           textarea.select();
           document.execCommand("copy");
           textarea.remove();
-          alert("Password copied to clipboard");
+          showToast();
 });
+
+function showToast() {
+          toastEl.classList.add("show");
+          setTimeout(() => {
+                    toastEl.classList.remove("show");
+          }, 2500);
+}
